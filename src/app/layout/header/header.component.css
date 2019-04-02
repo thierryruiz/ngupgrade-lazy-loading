@@ -1,0 +1,9 @@
+:host {
+  background:  #000022;
+  color:white;
+  padding: 30px;
+}
+
+:host a:link, :host a:visited  {
+  color:white
+}
