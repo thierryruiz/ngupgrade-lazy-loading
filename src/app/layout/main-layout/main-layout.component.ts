@@ -13,6 +13,7 @@ export class MainLayoutComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log( 'set ready');
     this.layoutService.setReady();
   }
 

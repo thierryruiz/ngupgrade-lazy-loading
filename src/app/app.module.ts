@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {PreloadAllModules, RouterModule} from '@angular/router';
 import {LayoutModule} from './layout/layout.module';
+import {LayoutService} from './layout/layout.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import {LayoutModule} from './layout/layout.module';
     // RouterModule.forRoot([], { preloadingStrategy: PreloadAllModules }),
     LayoutModule,
   ],
-  providers: [],
+  providers: [LayoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

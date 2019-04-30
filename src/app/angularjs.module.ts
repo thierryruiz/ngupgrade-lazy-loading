@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { module } from './core/core.module';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { setUpLocationSync } from '@angular/router/upgrade';
+import { LayoutService } from './layout/layout.service';
 
 /**
  * This module is written at the beginning of the upgrade process.
@@ -33,9 +34,19 @@ export class AngularJSModule
  {
   // The constructor is called only once, so we bootstrap the application
   // only once, when we first navigate to the legacy part of the app.
-  constructor(private upgrade: UpgradeModule) {
-    this.upgrade.bootstrap(document.body, [module.name]);
-    setUpLocationSync(this.upgrade);
+  constructor(
+    private upgrade: UpgradeModule,
+    private layoutService: LayoutService
+    ) {
+    
+    
+    this.layoutService.ready$().subscribe( (ready)=> {
+      if (ready) {
+        this.upgrade.bootstrap(document.body, [module.name]);
+        setUpLocationSync(this.upgrade);
+      }
+    })
+   
   }
 
   //ngDoBootstrap(){

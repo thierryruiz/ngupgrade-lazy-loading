@@ -2,7 +2,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { LayoutResolver } from './layout.resolver';
+
 
 const routes: Routes = [
   {
@@ -17,11 +17,11 @@ const routes: Routes = [
       { 
         path: 'core', 
         loadChildren: '../angularjs.module#AngularJSModule',
-        resolve : {
-          ready: LayoutResolver
-        }
-      },  
-      { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardModule' },
+      },
+      { 
+        path: 'dashboard', 
+        loadChildren: '../dashboard/dashboard.module#DashboardModule' 
+      }
     ]
   }
 ];

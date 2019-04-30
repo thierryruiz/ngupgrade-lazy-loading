@@ -8,6 +8,7 @@ import {LayoutService} from './layout.service' ;
 export class LayoutResolver implements Resolve<boolean> {
   constructor(private layoutService: LayoutService) {}
   resolve(): Observable<boolean> {
+    console.log( "resolve");
     return this.layoutService.ready$() ;
   }
 }

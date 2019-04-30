@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core' ;
 import {Observable, BehaviorSubject} from 'rxjs';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class LayoutService {
 
   private ready : BehaviorSubject<boolean>;
