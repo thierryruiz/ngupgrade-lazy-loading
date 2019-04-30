@@ -1,4 +1,5 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, AfterContentInit
+ } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { module } from './core/core.module';
@@ -12,11 +13,9 @@ import { setUpLocationSync } from '@angular/router/upgrade';
 
 @Component({ template: `` })
 export class EmptyComponent { 
-  constructor(){
+  constructor(private upgrade: UpgradeModule){
     console.log( "Create Empty component");
   } 
-
-
 }
 
 @NgModule({
@@ -30,11 +29,20 @@ export class EmptyComponent {
     ])
   ]
 })
-export class AngularJSModule {
+export class AngularJSModule
+ {
   // The constructor is called only once, so we bootstrap the application
   // only once, when we first navigate to the legacy part of the app.
-  constructor(upgrade: UpgradeModule) {
-    upgrade.bootstrap(document.body, [module.name]);
-    setUpLocationSync(upgrade);
+  constructor(private upgrade: UpgradeModule) {
+    this.upgrade.bootstrap(document.body, [module.name]);
+    setUpLocationSync(this.upgrade);
   }
+
+  //ngDoBootstrap(){
+  //  this.upgrade.bootstrap(document.body, [module.name]);
+  //  setUpLocationSync(this.upgrade);
+  //}
+
+
+
 }

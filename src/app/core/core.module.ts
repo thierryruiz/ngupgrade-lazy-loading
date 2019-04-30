@@ -23,7 +23,7 @@ module.config(($locationProvider: any, $stateProvider: any) => {
 });
 
 module.run(($rootScope: any) => {
-  console.log('Running AngularJS application');
+  console.log('Running CORE AngularJS application');
 
   $rootScope.$on('$stateChangeStart', (e: any, toState: any, toParams: any) => {
     console.log('$stateChangeStart', toState, toParams);
