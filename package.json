@@ -21,7 +21,7 @@
     "@angular/flex-layout": "7.0.0-beta.24",
     "@angular/platform-browser": "6.1.10",
     "@angular/platform-browser-dynamic": "6.1.10",
-    "angular": "1.6.4",
+    "angular": "1.8.3",
     "angular-ui-router": "0.4.2"
   },
   "scripts": {
